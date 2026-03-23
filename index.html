@@ -5,200 +5,763 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jad Berjawi | Portfolio</title>
     <style>
-        /* CSS Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
+
         :root {
-            --primary-color: #0f172a;
-            --accent-color: #2563eb;
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --card-bg: #ffffff;
+            --bg: #f4efe8;
+            --bg-soft: rgba(255, 255, 255, 0.72);
+            --surface: rgba(255, 255, 255, 0.88);
+            --surface-strong: #fffdfa;
+            --text: #132238;
+            --muted: #5d6b7d;
+            --line: rgba(19, 34, 56, 0.1);
+            --navy: #12304a;
+            --teal: #0c8b86;
+            --teal-deep: #0b6b67;
+            --gold: #d7a14a;
+            --shadow: 0 24px 60px rgba(18, 48, 74, 0.14);
+            --radius-xl: 28px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --max-width: 1180px;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
+            font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(215, 161, 74, 0.2), transparent 26%),
+                radial-gradient(circle at 85% 15%, rgba(12, 139, 134, 0.18), transparent 22%),
+                linear-gradient(180deg, #f7f1e8 0%, #f4efe8 42%, #ede4d8 100%);
+            line-height: 1.65;
         }
-        .container {
-            max-width: 900px;
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 70%);
+            opacity: 0.35;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(calc(100% - 2rem), var(--max-width));
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.2rem 0 4rem;
+            position: relative;
+            z-index: 1;
         }
-        header {
-            text-align: center;
-            padding: 4rem 0 2rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            margin-bottom: 2rem;
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            margin-bottom: 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 999px;
+            background: rgba(255, 253, 250, 0.65);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 30px rgba(18, 48, 74, 0.06);
         }
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--navy);
         }
-        h2 {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            border-bottom: 2px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 0.2rem;
+
+        .brand-mark {
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--navy), var(--teal));
+            color: white;
+            box-shadow: 0 10px 22px rgba(18, 48, 74, 0.24);
         }
-        h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.2rem;
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
         }
-        .contact-info {
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-        .contact-info a {
-            color: var(--accent-color);
+
+        .nav-links a {
             text-decoration: none;
-            margin: 0 10px;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+
+        .nav-links a:hover {
+            background: rgba(18, 48, 74, 0.07);
+            color: var(--navy);
+            transform: translateY(-1px);
         }
-        .section-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.9fr);
+            gap: 1.4rem;
             margin-bottom: 1.5rem;
         }
+
+        .hero-card,
+        .spotlight-card,
+        .section-card,
+        .timeline-item,
+        .skill-panel,
+        .publication-card,
+        .education-card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(14px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card {
+            position: relative;
+            overflow: hidden;
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            right: -120px;
+            top: -120px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(12, 139, 134, 0.18), transparent 66%);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(18, 48, 74, 0.08);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 1rem 0 0.9rem;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: clamp(3.1rem, 8vw, 5.7rem);
+            line-height: 0.95;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            max-width: 8ch;
+        }
+
+        .hero p {
+            max-width: 54ch;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            margin-top: 1.6rem;
+        }
+
+        .button,
+        .ghost-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.88rem 1.2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+
+        .button {
+            background: linear-gradient(135deg, var(--navy), var(--teal));
+            color: white;
+            box-shadow: 0 16px 28px rgba(18, 48, 74, 0.2);
+        }
+
+        .ghost-button {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(18, 48, 74, 0.08);
+            color: var(--navy);
+        }
+
+        .button:hover,
+        .ghost-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .meta-block {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(18, 48, 74, 0.06);
+        }
+
+        .meta-label {
+            display: block;
+            color: var(--muted);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-value {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .spotlight-card {
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.2rem;
+            background:
+                linear-gradient(180deg, rgba(18, 48, 74, 0.98), rgba(18, 48, 74, 0.92)),
+                linear-gradient(135deg, rgba(12, 139, 134, 0.35), transparent 40%);
+            color: #f6f2ea;
+        }
+
+        .spotlight-card .label {
+            color: rgba(246, 242, 234, 0.72);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .spotlight-card h2 {
+            margin: 0.3rem 0 0.5rem;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 2.1rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .spotlight-card p,
+        .spotlight-card li {
+            color: rgba(246, 242, 234, 0.84);
+        }
+
+        .spotlight-card ul {
+            margin: 0;
+            padding-left: 1.1rem;
+        }
+
+        .contact-stack {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: white;
+            padding: 0.95rem 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-link small {
+            display: block;
+            color: rgba(246, 242, 234, 0.62);
+            margin-bottom: 0.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+            gap: 1.4rem;
+        }
+
+        .section-card {
+            padding: 1.5rem;
+            border-radius: var(--radius-xl);
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--navy);
+        }
+
+        .section-heading span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            border-radius: var(--radius-lg);
+            padding: 1.3rem;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 251, 246, 0.9));
+        }
+
+        .timeline-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: start;
+            margin-bottom: 0.85rem;
+        }
+
+        .timeline-item h3,
+        .education-card h3,
+        .publication-card h3 {
+            margin: 0;
+            color: var(--navy);
+            font-size: 1.15rem;
+        }
+
+        .org {
+            color: var(--teal-deep);
+            font-weight: 700;
+            margin-top: 0.15rem;
+        }
+
         .date {
-            font-size: 0.9rem;
-            color: #64748b;
-            font-style: italic;
+            white-space: nowrap;
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 700;
+            padding: 0.45rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(18, 48, 74, 0.06);
         }
+
         ul {
-            padding-left: 1.5rem;
-            margin-bottom: 0;
+            margin: 0;
+            padding-left: 1.15rem;
         }
-        .skills-container {
+
+        li + li {
+            margin-top: 0.45rem;
+        }
+
+        .side-column {
+            display: grid;
+            gap: 1.4rem;
+            align-self: start;
+        }
+
+        .publication-card,
+        .education-card,
+        .skill-panel {
+            padding: 1.4rem;
+            border-radius: var(--radius-xl);
+        }
+
+        .publication-card {
+            background:
+                linear-gradient(180deg, rgba(12, 139, 134, 0.1), rgba(255, 255, 255, 0.88)),
+                var(--surface-strong);
+        }
+
+        .publication-card p,
+        .education-card p {
+            margin: 0.45rem 0 0;
+            color: var(--muted);
+        }
+
+        .publication-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .pill-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 0.75rem;
         }
+
         .skill-tag {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.58rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(18, 48, 74, 0.08);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.92rem;
         }
+
+        .skill-panel h2,
+        .publication-card h2,
+        .education-card h2 {
+            margin: 0 0 1rem;
+            color: var(--navy);
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 1.85rem;
+            font-weight: 400;
+        }
+
+        .education-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .education-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(250, 247, 241, 0.92));
+        }
+
         footer {
+            margin-top: 1.5rem;
             text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #64748b;
+            color: var(--muted);
+            font-size: 0.95rem;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card,
+            .spotlight-card,
+            .section-card,
+            .skill-panel,
+            .publication-card,
+            .education-card {
+                padding: 1.3rem;
+            }
+
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .page-shell {
+                width: min(calc(100% - 1rem), var(--max-width));
+                padding-top: 0.7rem;
+            }
+
+            .topbar {
+                border-radius: 28px;
+                padding: 1rem;
+            }
+
+            .brand,
+            .topbar,
+            .nav-links,
+            .timeline-top,
+            .section-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.7rem, 16vw, 4.1rem);
+            }
+
+            .button,
+            .ghost-button,
+            .contact-link {
+                width: 100%;
+            }
+
+            .hero-actions {
+                width: 100%;
+            }
+
+            .date {
+                white-space: normal;
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <header>
-        <h1>Jad Berjawi</h1>
-        <p style="font-size: 1.2rem; margin: 0;">PhD Student & Researcher in Computer Vision</p>
-        <div class="contact-info">
-            <span>Grenoble, France</span> | 
-            <a href="mailto:jadberjawi9@outlook.com">jadberjawi9@outlook.com</a> |
-            <a href="https://www.linkedin.com/in/jadberjawi/" target="_blank">LinkedIn</a>
-        </div>
-    </header>
-
-    <section>
-        <h2>Professional Experience</h2>
-        
-        <div class="section-card">
-            <h3>Research Internship (Computer Vision)</h3>
-            <p><strong>INRIA - DATAMOVE Team</strong> <span class="date">| Feb 2025 - Aug 2025</span></p>
-            <ul>
-                <li>Developed a multimodal fusion architecture for an object detection pipeline.</li>
-                <li>Applied transfer learning, channel fusion, and data augmentation to improve mAP.</li>
-                <li>Resulted in a publication at the ICCV 2025 MIRA Workshop.</li>
-            </ul>
-        </div>
-
-        <div class="section-card">
-            <h3>AR Research Internship (HCI)</h3>
-            <p><strong>LIG - IIHM Team</strong> <span class="date">| May 2024 - Aug 2024</span></p>
-            <ul>
-                <li>Adapted a gesture-based toolkit for cross-platform AR devices using Unity (C#).</li>
-                <li>Designed and evaluated micro-gesture visualizations in AR interfaces.</li>
-            </ul>
-        </div>
-
-        <div class="section-card">
-            <h3>Full-stack Developer</h3>
-            <p><strong>Kerning Code</strong> <span class="date">| Jun 2022 - Aug 2023</span></p>
-            <ul>
-                <li>Built scalable, production-level web apps using React.js, microservices, and MySQL.</li>
-                <li>Deployed and maintained the LOCUS platform.</li>
-            </ul>
-        </div>
-    </section>
-
-        <section>
-        <h2>Publications & Projects</h2>
-        <div class="section-card">
-            <ul>
-                <li><strong>Publication:</strong> J. Berjawi, Y. Dupas, C. Cérin, "Towards a Generalizable Fusion Architecture for Multimodal Object Detection", ICCV 2025 Workshop on Multispectral Imaging for Robotics and Automation (MIRA), Honolulu, USA, 2025.</li>
-                <li><strong>Project:</strong> 3D Shape Modeling from Binary Silhouettes (Estimated 3D visual hulls using voxel carving; trained MLP to learn implicit shape functions).</li>
-            </ul>
-        </div>
-    </section>
-    
-        <section>
-        <h2>Education</h2>
-        
-        <div class="section-card">
-            <h3>PhD Student/Researcher</h3>
-            <p><strong>INSERM-LIG</strong> <span class="date">| Nov 2025 - Present</span></p>
-            <ul>
-                <li>Topic: Deep Representation Learning and Transfer Strategies for 3D Medical Image (SPECT MPI) Analysis Under Limited Supervision.</li>
-            </ul>
-        </div>
-
-        <div class="section-card">
-            <h3>M.Sc. in Informatics (MOSIG M2 & M1)</h3>
-            <p><strong>Université Grenoble Alpes, France</strong> <span class="date">| Aug 2023 - Aug 2025</span></p>
-            <p>Specialization: AI for Vision, Graphics, Interaction, and Robotics. Coursework included Advanced Machine Learning, Computer Vision II, and Data Science.</p>
-        </div>
-
-        <div class="section-card">
-            <h3>B.Sc. in Computer Science (Minor: Actuarial Science)</h3>
-            <p><strong>Lebanese American University, Lebanon</strong> <span class="date">| Aug 2019 - Dec 2022</span></p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Technical Skills</h2>
-        <div class="section-card">
-            <div class="skills-container">
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">OpenCV</span>
-                <span class="skill-tag">CNNs & MLPs</span>
-                <span class="skill-tag">Transfer Learning</span>
-                <span class="skill-tag">Unity</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">C#</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">Git / CI-CD</span>
-                <span class="skill-tag">SLURM / Linux</span>
+    <div class="page-shell">
+        <nav class="topbar">
+            <div class="brand">
+                <span class="brand-mark">JB</span>
+                <span>Jad Berjawi</span>
             </div>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#research">Research</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-card">
+                <span class="eyebrow">PhD Student and Researcher</span>
+                <h1>Computer vision with a product mindset.</h1>
+                <p>
+                    I am Jad Berjawi, a researcher working at the intersection of computer vision,
+                    multimodal learning, and applied machine intelligence. My background spans
+                    academic research, AR interaction, and production web development.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button" href="mailto:jadberjawi9@outlook.com">Let's connect</a>
+                    <a class="ghost-button" href="https://www.linkedin.com/in/jadberjawi/" target="_blank" rel="noreferrer">View LinkedIn</a>
+                </div>
+
+                <div class="hero-meta">
+                    <div class="meta-block">
+                        <span class="meta-label">Based in</span>
+                        <span class="meta-value">Grenoble, France</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Focus</span>
+                        <span class="meta-value">Vision, multimodal AI, HCI</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Current role</span>
+                        <span class="meta-value">INSERM-LIG Researcher</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="spotlight-card">
+                <div>
+                    <div class="label">Current direction</div>
+                    <h2>Researching robust learning under limited supervision</h2>
+                    <p>
+                        My current PhD work explores deep representation learning and transfer
+                        strategies for 3D medical image analysis, with a focus on practical models
+                        that stay useful when data is scarce.
+                    </p>
+                </div>
+
+                <ul>
+                    <li>Multimodal object detection</li>
+                    <li>3D medical image analysis</li>
+                    <li>AR interaction and visual systems</li>
+                </ul>
+
+                <div class="contact-stack">
+                    <a class="contact-link" href="mailto:jadberjawi9@outlook.com">
+                        <small>Email</small>
+                        jadberjawi9@outlook.com
+                    </a>
+                    <a class="contact-link" href="https://www.linkedin.com/in/jadberjawi/" target="_blank" rel="noreferrer">
+                        <small>Professional profile</small>
+                        linkedin.com/in/jadberjawi
+                    </a>
+                </div>
+            </aside>
+        </section>
+
+        <div class="grid-layout">
+            <main>
+                <section class="section-card" id="experience">
+                    <div class="section-heading">
+                        <h2>Professional Experience</h2>
+                        <span>Research, development, and applied engineering</span>
+                    </div>
+
+                    <div class="timeline">
+                        <article class="timeline-item">
+                            <div class="timeline-top">
+                                <div>
+                                    <h3>Research Internship (Computer Vision)</h3>
+                                    <div class="org">INRIA, DATAMOVE Team</div>
+                                </div>
+                                <div class="date">Feb 2025 - Aug 2025</div>
+                            </div>
+                            <ul>
+                                <li>Developed a multimodal fusion architecture for an object detection pipeline.</li>
+                                <li>Applied transfer learning, channel fusion, and data augmentation to improve mAP.</li>
+                                <li>Contributed to work that led to a publication at the ICCV 2025 MIRA Workshop.</li>
+                            </ul>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-top">
+                                <div>
+                                    <h3>AR Research Internship (HCI)</h3>
+                                    <div class="org">LIG, IIHM Team</div>
+                                </div>
+                                <div class="date">May 2024 - Aug 2024</div>
+                            </div>
+                            <ul>
+                                <li>Adapted a gesture-based toolkit for cross-platform AR devices using Unity and C#.</li>
+                                <li>Designed and evaluated micro-gesture visualizations for immersive interfaces.</li>
+                            </ul>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-top">
+                                <div>
+                                    <h3>Full-stack Developer</h3>
+                                    <div class="org">Kerning Code</div>
+                                </div>
+                                <div class="date">Jun 2022 - Aug 2023</div>
+                            </div>
+                            <ul>
+                                <li>Built scalable production web applications using React.js, microservices, and MySQL.</li>
+                                <li>Deployed and maintained the LOCUS platform in a professional client environment.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="side-column">
+                <section class="publication-card" id="research">
+                    <h2>Publications and Projects</h2>
+                    <div class="publication-list">
+                        <div>
+                            <h3>ICCV 2025 MIRA Workshop</h3>
+                            <p>
+                                J. Berjawi, Y. Dupas, C. Cérin, "Towards a Generalizable Fusion
+                                Architecture for Multimodal Object Detection", Honolulu, USA, 2025.
+                            </p>
+                        </div>
+                        <div>
+                            <h3>3D Shape Modeling from Binary Silhouettes</h3>
+                            <p>
+                                Estimated 3D visual hulls using voxel carving and trained MLPs to
+                                learn implicit shape functions.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="skill-panel" id="skills">
+                    <h2>Technical Skills</h2>
+                    <div class="pill-row">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">CNNs and MLPs</span>
+                        <span class="skill-tag">Transfer Learning</span>
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Git and CI/CD</span>
+                        <span class="skill-tag">SLURM and Linux</span>
+                    </div>
+                </section>
+            </aside>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Jad Berjawi. Built with HTML & CSS.</p>
-    </footer>
-</div>
+        <section class="section-card" id="education" style="margin-top: 1.4rem;">
+            <div class="section-heading">
+                <h2>Education</h2>
+                <span>Academic path in AI, vision, and computing</span>
+            </div>
 
+            <div class="education-list">
+                <article class="education-card">
+                    <div class="timeline-top">
+                        <div>
+                            <h3>PhD Student and Researcher</h3>
+                            <div class="org">INSERM-LIG</div>
+                        </div>
+                        <div class="date">Nov 2025 - Present</div>
+                    </div>
+                    <p>
+                        Topic: Deep Representation Learning and Transfer Strategies for 3D Medical
+                        Image (SPECT MPI) Analysis Under Limited Supervision.
+                    </p>
+                </article>
+
+                <article class="education-card">
+                    <div class="timeline-top">
+                        <div>
+                            <h3>M.Sc. in Informatics (MOSIG M2 and M1)</h3>
+                            <div class="org">Universite Grenoble Alpes, France</div>
+                        </div>
+                        <div class="date">Aug 2023 - Aug 2025</div>
+                    </div>
+                    <p>
+                        Specialization in AI for vision, graphics, interaction, and robotics with
+                        coursework in advanced machine learning, computer vision, and data science.
+                    </p>
+                </article>
+
+                <article class="education-card">
+                    <div class="timeline-top">
+                        <div>
+                            <h3>B.Sc. in Computer Science</h3>
+                            <div class="org">Lebanese American University, Lebanon</div>
+                        </div>
+                        <div class="date">Aug 2019 - Dec 2022</div>
+                    </div>
+                    <p>Minor in Actuarial Science.</p>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Jad Berjawi. Designed as a modern one-page portfolio in HTML and CSS.</p>
+        </footer>
+    </div>
 </body>
 </html>
