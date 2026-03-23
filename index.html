@@ -8,18 +8,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
 
         :root {
-            --bg: #f4efe8;
+            --bg: #eef1eb;
             --bg-soft: rgba(255, 255, 255, 0.72);
             --surface: rgba(255, 255, 255, 0.88);
             --surface-strong: #fffdfa;
-            --text: #132238;
-            --muted: #5d6b7d;
-            --line: rgba(19, 34, 56, 0.1);
-            --navy: #12304a;
-            --teal: #0c8b86;
-            --teal-deep: #0b6b67;
-            --gold: #d7a14a;
-            --shadow: 0 24px 60px rgba(18, 48, 74, 0.14);
+            --text: #25332d;
+            --muted: #6b7b73;
+            --line: rgba(37, 51, 45, 0.1);
+            --navy: #4f6b62;
+            --teal: #8aa399;
+            --teal-deep: #6f897f;
+            --gold: #c9b89a;
+            --shadow: 0 24px 60px rgba(79, 107, 98, 0.14);
             --radius-xl: 28px;
             --radius-lg: 22px;
             --radius-md: 16px;
@@ -39,9 +39,9 @@
             font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(215, 161, 74, 0.2), transparent 26%),
-                radial-gradient(circle at 85% 15%, rgba(12, 139, 134, 0.18), transparent 22%),
-                linear-gradient(180deg, #f7f1e8 0%, #f4efe8 42%, #ede4d8 100%);
+                radial-gradient(circle at top left, rgba(201, 184, 154, 0.24), transparent 26%),
+                radial-gradient(circle at 85% 15%, rgba(138, 163, 153, 0.2), transparent 22%),
+                linear-gradient(180deg, #f5f7f2 0%, #eef1eb 42%, #e4e8e0 100%);
             line-height: 1.65;
         }
 
@@ -79,9 +79,9 @@
             margin-bottom: 1.4rem;
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 999px;
-            background: rgba(255, 253, 250, 0.65);
+            background: rgba(250, 251, 248, 0.7);
             backdrop-filter: blur(16px);
-            box-shadow: 0 8px 30px rgba(18, 48, 74, 0.06);
+            box-shadow: 0 8px 30px rgba(79, 107, 98, 0.08);
         }
 
         .brand {
@@ -103,7 +103,7 @@
             place-items: center;
             background: linear-gradient(135deg, var(--navy), var(--teal));
             color: white;
-            box-shadow: 0 10px 22px rgba(18, 48, 74, 0.24);
+            box-shadow: 0 10px 22px rgba(79, 107, 98, 0.22);
         }
 
         .nav-links {
@@ -163,7 +163,7 @@
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(12, 139, 134, 0.18), transparent 66%);
+            background: radial-gradient(circle, rgba(138, 163, 153, 0.24), transparent 66%);
         }
 
         .eyebrow {
@@ -172,7 +172,7 @@
             gap: 0.5rem;
             padding: 0.45rem 0.8rem;
             border-radius: 999px;
-            background: rgba(18, 48, 74, 0.08);
+            background: rgba(79, 107, 98, 0.1);
             color: var(--navy);
             font-weight: 700;
             font-size: 0.82rem;
@@ -220,12 +220,12 @@
         .button {
             background: linear-gradient(135deg, var(--navy), var(--teal));
             color: white;
-            box-shadow: 0 16px 28px rgba(18, 48, 74, 0.2);
+            box-shadow: 0 16px 28px rgba(79, 107, 98, 0.2);
         }
 
         .ghost-button {
             background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(18, 48, 74, 0.08);
+            border: 1px solid rgba(79, 107, 98, 0.1);
             color: var(--navy);
         }
 
@@ -244,8 +244,8 @@
         .meta-block {
             padding: 1rem;
             border-radius: var(--radius-md);
-            background: rgba(255, 255, 255, 0.62);
-            border: 1px solid rgba(18, 48, 74, 0.06);
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(79, 107, 98, 0.08);
         }
 
         .meta-label {
@@ -270,13 +270,13 @@
             justify-content: space-between;
             gap: 1.2rem;
             background:
-                linear-gradient(180deg, rgba(18, 48, 74, 0.98), rgba(18, 48, 74, 0.92)),
-                linear-gradient(135deg, rgba(12, 139, 134, 0.35), transparent 40%);
-            color: #f6f2ea;
+                linear-gradient(180deg, rgba(79, 107, 98, 0.98), rgba(79, 107, 98, 0.92)),
+                linear-gradient(135deg, rgba(138, 163, 153, 0.28), transparent 40%);
+            color: #f5f7f2;
         }
 
         .spotlight-card .label {
-            color: rgba(246, 242, 234, 0.72);
+            color: rgba(245, 247, 242, 0.72);
             text-transform: uppercase;
             letter-spacing: 0.08em;
             font-size: 0.8rem;
@@ -293,7 +293,7 @@
 
         .spotlight-card p,
         .spotlight-card li {
-            color: rgba(246, 242, 234, 0.84);
+            color: rgba(245, 247, 242, 0.84);
         }
 
         .spotlight-card ul {
@@ -317,7 +317,7 @@
 
         .contact-link small {
             display: block;
-            color: rgba(246, 242, 234, 0.62);
+            color: rgba(245, 247, 242, 0.62);
             margin-bottom: 0.15rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -363,7 +363,7 @@
         .timeline-item {
             border-radius: var(--radius-lg);
             padding: 1.3rem;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 251, 246, 0.9));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 249, 245, 0.92));
         }
 
         .timeline-top {
@@ -395,7 +395,7 @@
             font-weight: 700;
             padding: 0.45rem 0.7rem;
             border-radius: 999px;
-            background: rgba(18, 48, 74, 0.06);
+            background: rgba(79, 107, 98, 0.1);
         }
 
         ul {
@@ -422,7 +422,7 @@
 
         .publication-card {
             background:
-                linear-gradient(180deg, rgba(12, 139, 134, 0.1), rgba(255, 255, 255, 0.88)),
+                linear-gradient(180deg, rgba(138, 163, 153, 0.16), rgba(255, 255, 255, 0.88)),
                 var(--surface-strong);
         }
 
@@ -448,7 +448,7 @@
             align-items: center;
             padding: 0.58rem 0.85rem;
             border-radius: 999px;
-            background: rgba(18, 48, 74, 0.08);
+            background: rgba(79, 107, 98, 0.1);
             color: var(--navy);
             font-weight: 700;
             font-size: 0.92rem;
@@ -470,7 +470,7 @@
         }
 
         .education-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(250, 247, 241, 0.92));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 247, 242, 0.92));
         }
 
         footer {
