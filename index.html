@@ -1,21 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Jad Berjawi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jad Berjawi | Portfolio</title>
     <style>
+        /* CSS Styling */
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --card-bg: #ffffff;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
             text-align: center;
-            margin-top: 50px;
+            padding: 4rem 0 2rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 2rem;
         }
         h1 {
-            color: #333;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+        h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+        .contact-info {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .section-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        .date {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
-    <h1>Hello, I'm Jad</h1>
-    <p>Welcome to my personal corner of the internet.</p>
-    <p>I am a PhD student.</p>
+
+<div class="container">
+    <header>
+        <h1>Jad Berjawi</h1>
+        <p style="font-size: 1.2rem; margin: 0;">PhD Student & Researcher in Machine Learning and Computer Vision</p>
+        <div class="contact-info">
+            <span>Grenoble, France</span> | 
+            <a href="mailto:jadberjawi9@outlook.com">jadberjawi9@outlook.com</a> |
+            <a href="https://www.linkedin.com/in/jadberjawi/" target="_blank">LinkedIn</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Experience</h2>
+        
+        <div class="section-card">
+            <h3>PhD Student/Researcher</h3>
+            <p><strong>INSERM-LIG</strong> <span class="date">| Nov 2025 - Present</span></p>
+            <ul>
+                <li>Topic: Deep Representation Learning and Transfer Strategies for 3D Medical Image (SPECT MPI) Analysis Under Limited Supervision.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h3>Research Internship (Machine Learning & Computer Vision)</h3>
+            <p><strong>INRIA - DATAMOVE Team</strong> <span class="date">| Feb 2025 - Aug 2025</span></p>
+            <ul>
+                <li>Developed a multimodal fusion architecture for an object detection pipeline.</li>
+                <li>Applied transfer learning, channel fusion, and data augmentation to improve mAP.</li>
+                <li>Resulted in a publication at the ICCV 2025 MIRA Workshop.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h3>Full-stack Developer</h3>
+            <p><strong>Kerning Code</strong> <span class="date">| Jun 2022 - Aug 2023</span></p>
+            <ul>
+                <li>Built scalable, production-level web apps using React.js, microservices, and MySQL.</li>
+                <li>Deployed and maintained the LOCUS platform.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        
+        <div class="section-card">
+            <h3>M.Sc. in Informatics (MOSIG M2 & M1)</h3>
+            <p><strong>Université Grenoble Alpes, France</strong> <span class="date">| Aug 2023 - Aug 2025</span></p>
+            <p>Specialization: AI for Vision, Graphics, Interaction, and Robotics. Coursework included Advanced Machine Learning, Computer Vision II, and Data Science.</p>
+        </div>
+
+        <div class="section-card">
+            <h3>B.Sc. in Computer Science (Minor: Actuarial Science)</h3>
+            <p><strong>Lebanese American University, Lebanon</strong> <span class="date">| Aug 2019 - Dec 2022</span></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Publications & Projects</h2>
+        <div class="section-card">
+            <ul>
+                <li><strong>Publication:</strong> J. Berjawi, Y. Dupas, C. Cérin, "Towards a Generalizable Fusion Architecture for Multimodal Object Detection", ICCV 2025 Workshop on Multispectral Imaging for Robotics and Automation (MIRA), Honolulu, USA, 2025.</li>
+                <li><strong>Project:</strong> 3D Shape Modeling from Binary Silhouettes (Estimated 3D visual hulls using voxel carving; trained MLP to learn implicit shape functions).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="section-card">
+            <div class="skills-container">
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">OpenCV</span>
+                <span class="skill-tag">CNNs & MLPs</span>
+                <span class="skill-tag">Transfer Learning</span>
+                <span class="skill-tag">Unity</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Git / CI-CD</span>
+                <span class="skill-tag">SLURM / Linux</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Jad Berjawi. Built with HTML & CSS.</p>
+    </footer>
+</div>
+
 </body>
 </html>
