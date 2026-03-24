@@ -35,6 +35,7 @@
             color: var(--text);
             background: var(--page-bg);
             line-height: 1.7;
+            overflow-wrap: anywhere;
         }
 
         a {
@@ -77,6 +78,7 @@
         .brand-role {
             color: var(--muted);
             font-size: 0.95rem;
+            overflow-wrap: anywhere;
         }
 
         .nav-links {
@@ -88,6 +90,7 @@
 
         .nav-links a {
             color: var(--muted);
+            overflow-wrap: anywhere;
         }
 
         .nav-links a:hover {
@@ -210,6 +213,9 @@
             color: var(--text);
             font-weight: 700;
             transition: background-color 0.2s ease, border-color 0.2s ease;
+            text-align: center;
+            white-space: normal;
+            overflow-wrap: anywhere;
         }
 
         .button-link:hover {
@@ -311,6 +317,7 @@
             margin: 0;
             font-size: 1.08rem;
             line-height: 1.35;
+            overflow-wrap: anywhere;
         }
 
         .entry-main {
@@ -332,6 +339,13 @@
             font-weight: 600;
         }
 
+        .entry .submeta,
+        .entry p,
+        .fact-value,
+        .portrait-caption {
+            overflow-wrap: anywhere;
+        }
+
         .entry .date {
             white-space: nowrap;
             color: var(--muted);
@@ -351,6 +365,8 @@
             font-size: 0.84rem;
             font-weight: 700;
             line-height: 1;
+            white-space: normal;
+            text-align: center;
         }
 
         .publication-link:hover {
@@ -384,6 +400,8 @@
             color: var(--text);
             font-size: 0.94rem;
             font-weight: 600;
+            white-space: normal;
+            text-align: center;
         }
 
         footer {
@@ -399,6 +417,10 @@
                 align-items: start;
             }
 
+            .nav-links {
+                gap: 0.8rem;
+            }
+
             .intro {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -406,6 +428,7 @@
 
             .portrait-card {
                 position: static;
+                width: min(100%, 340px);
                 max-width: 340px;
             }
 
@@ -425,12 +448,50 @@
                 padding-top: 1rem;
             }
 
+            .topbar {
+                gap: 0.75rem;
+            }
+
+            .brand-name {
+                font-size: 1.55rem;
+            }
+
+            .brand-role,
+            .nav-links {
+                font-size: 0.9rem;
+            }
+
+            .nav-links {
+                gap: 0.55rem 0.85rem;
+            }
+
             .intro {
+                gap: 1.15rem;
                 padding-top: 1.8rem;
             }
 
             .intro-copy h1 {
                 font-size: clamp(2.5rem, 15vw, 3.7rem);
+            }
+
+            .intro-copy p,
+            .research-callout p,
+            .entry p,
+            .entry li {
+                font-size: 0.97rem;
+            }
+
+            .research-callout {
+                padding: 1.15rem 1rem;
+            }
+
+            .research-callout h2 {
+                font-size: 1.45rem;
+            }
+
+            blockquote {
+                font-size: 1.02rem;
+                padding-left: 0.85rem;
             }
 
             .section {
@@ -441,8 +502,52 @@
                 font-size: 1.95rem;
             }
 
+            .entry {
+                padding: 1rem 0.9rem;
+            }
+
+            .entry-main {
+                align-items: flex-start;
+            }
+
             .button-link {
                 width: 100%;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page-shell {
+                width: min(calc(100% - 0.8rem), var(--max-width));
+            }
+
+            .topbar {
+                padding-bottom: 1rem;
+            }
+
+            .brand-name {
+                font-size: 1.4rem;
+            }
+
+            .section {
+                padding: 1rem 0.85rem 1.1rem;
+                border-radius: 16px;
+            }
+
+            .section-heading {
+                margin-bottom: 1rem;
+                padding-bottom: 0.8rem;
+            }
+
+            .section-heading h2 {
+                font-size: 1.7rem;
+            }
+
+            .entry {
+                padding: 0.9rem 0.8rem;
+            }
+
+            .tag-row {
+                gap: 0.55rem;
             }
         }
     </style>
