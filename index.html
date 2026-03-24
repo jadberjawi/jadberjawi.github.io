@@ -413,15 +413,15 @@
 
         @media (max-width: 860px) {
             .topbar {
-                display: grid;
-                align-items: start;
-                justify-items: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 text-align: center;
             }
 
             .nav-links {
-                gap: 0.8rem;
-                justify-content: center;
+                display: none;
             }
 
             .intro {
@@ -438,7 +438,9 @@
             }
 
             .brand {
+                width: auto;
                 justify-items: center;
+                margin: 0 auto;
             }
 
             .intro-copy,
@@ -476,8 +478,18 @@
             }
 
             .brand {
-                width: 100%;
+                width: auto;
+                display: grid;
                 justify-items: center;
+                align-items: center;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .brand-name,
+            .brand-role {
+                width: auto;
+                display: block;
                 text-align: center;
             }
 
@@ -497,7 +509,6 @@
 
             .nav-links {
                 display: none;
-                gap: 0.55rem 0.85rem;
             }
 
             .intro {
