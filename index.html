@@ -415,21 +415,44 @@
             .topbar {
                 display: grid;
                 align-items: start;
+                justify-items: center;
+                text-align: center;
             }
 
             .nav-links {
                 gap: 0.8rem;
+                justify-content: center;
             }
 
             .intro {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+                justify-items: center;
             }
 
             .portrait-card {
                 position: static;
                 width: min(100%, 340px);
                 max-width: 340px;
+                justify-self: center;
+            }
+
+            .brand {
+                justify-items: center;
+            }
+
+            .intro-copy,
+            .section-heading,
+            footer {
+                text-align: center;
+            }
+
+            .link-row {
+                justify-content: center;
+            }
+
+            .research-callout {
+                text-align: center;
             }
 
             .entry-top {
@@ -452,8 +475,19 @@
                 gap: 0.75rem;
             }
 
+            .brand {
+                width: 100%;
+                justify-items: center;
+                text-align: center;
+            }
+
             .brand-name {
                 font-size: 1.55rem;
+            }
+
+            .brand-role {
+                max-width: 28ch;
+                margin: 0 auto;
             }
 
             .brand-role,
@@ -462,12 +496,18 @@
             }
 
             .nav-links {
+                display: none;
                 gap: 0.55rem 0.85rem;
             }
 
             .intro {
                 gap: 1.15rem;
                 padding-top: 1.8rem;
+            }
+
+            .fact-list {
+                justify-items: center;
+                text-align: center;
             }
 
             .intro-copy h1 {
